@@ -61,9 +61,14 @@ app.post('/generate', (req, res) => {
     // Generate thumbnail
     const command = 'blender --background '+projectFilePath+' --python '+scriptFilePath+' -- input/'+id+'.json '+id+'.png'; // Replace with your command
 
-    exec(command,{
-        cwd: 'Blender3.3'
-      }, (error, stdout, stderr) => {
+    exec(command,
+    //     {
+    //     cwd: 'Blender3.3'
+    //   },
+      {
+        cwd: '/usr/src/app/blender-3.3.0-linux-x64/blender'
+      },
+      (error, stdout, stderr) => {
         if (error) {
             return res.status(500).json({ error: stderr });
         }

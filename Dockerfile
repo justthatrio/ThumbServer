@@ -6,7 +6,7 @@
 
 ARG NODE_VERSION=y
 
-FROM node:${NODE_VERSION}-alpine
+FROM node:1.17.0-alpine
 
 # Use production node environment by default.
 ENV NODE_ENV production

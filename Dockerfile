@@ -28,17 +28,17 @@ USER node
 # Copy the rest of the source files into the image.
 COPY . .
 
-
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Install necessary packages
-RUN apk add --no-cache wget
+# Download Blender
+RUN wget https://download.blender.org/release/Blender3.3/blender-3.3.0-linux-x64.tar.xz
 
-# Download Blender 3.3
-RUN wget https://download.blender.org/release/Blender3.3/blender-3.3.0-linux-x64.tar.xz \
-    && tar -xvf blender-3.3.0-linux-x64.tar.xz \
-    && rm blender-3.3.0-linux-x64.tar.xz
+# Extract the tarball
+RUN tar -xf blender-3.3.0-linux-x64.tar.xz
+
+# Clean up
+RUN rm blender-3.3.0-linux-x64.tar.xz
 
 # Expose the port that the application listens on.
 EXPOSE 5000

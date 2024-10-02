@@ -1,0 +1,11 @@
+## ScrapOfWorks thumbnail generation process
+
+Inorder to preview saves without loading all of a saves parts, thumbnails are generated offplatform. This avoids both sending clients other players saves for the sake of previewing and avoids the lag with loading an entire save potentially many times at once.
+
+OffPlatform Pipeline - [ApiServer] Is an authenticated server created an operated by me.
+[RobloxGameServer] Sends a save file to [ApiServer]
+[ApiServer] Launches a headless blender3D proccess with a script loaded with the save data
+[ApiServer:Blender] ReConstructs the save and renders it to an output folder
+[ApiServer] Uploads the rendered file to Roblox as a decal with the OpenAssets protocol
+[ApiServer] Queries the assetdelivery API for the imageid of the decal
+[ApiServer] Returns the ID in the long hanging request to [RobloxGameServer]

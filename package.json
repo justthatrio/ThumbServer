@@ -1,0 +1,12 @@
+{
+    "name": "my-awesome-package",
+    "version": "1.0.0",
+    "author": "Rio",
+    "type": "module",
+    "dependencies": {
+        "@xmldom/xmldom": "^0.9.3",
+        "axios": "^1.7.7",
+        "dotenv": "^16.4.5",
+        "express": "^4.21.0"
+    }
+}

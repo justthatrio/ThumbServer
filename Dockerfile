@@ -4,9 +4,9 @@
 # If you need more help, visit the Dockerfile reference guide at
 # https://docs.docker.com/go/dockerfile-reference/
 
-ARG NODE_VERSION=y
+ARG NODE_VERSION=16.17.0
 
-FROM node:1.17.0-alpine
+FROM node:16.17.0-alpine
 
 # Use production node environment by default.
 ENV NODE_ENV production
